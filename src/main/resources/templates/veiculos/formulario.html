@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template.html}">
+<head>
+
+    <title>Cadastro de veiculo</title>
+</head>
+<body>
+<div layout:fragment="conteudo">
+    <h1>Cadastro de veiculo</h1>
+
+    <form method="post" action="/veiculos">
+
+        <input type="hidden" name="_method" value="put" th:if="${veiculo != null}">
+        <input type="hidden" name="id" th:value="${veiculo?.id}">
+
+        <div>
+            <label for="tipo">Tipo do veículo:</label>
+            <input id="tipo" name="tipo" th:value="${veiculo?.tipoDoVeiculo}">
+        </div>
+
+        <div>
+            <label for="marca">Marca:</label>
+            <input id="marca" name="marca" th:value="${veiculo?.marca}">
+        </div>
+
+        <div>
+            <label for="modelo">Modelo:</label>
+            <input id="modelo" name="modelo" th:value="${veiculo?.modelo}">
+        </div>
+
+        <div>
+            <label for="ano">Ano:</label>
+            <input id="ano" name="ano" th:value="${veiculo?.ano}">
+        </div>
+
+        <div>
+            <label for="cor">Cor:</label>
+            <input id="cor" name="cor" th:value="${veiculo?.cor}">
+        </div>
+
+        <div>
+            <label for="preco">Preço:</label>
+            <input id="preco" name="preco" th:value="${veiculo?.preco}">
+
+        </div>
+
+        <input type="submit" th:value="${veiculo != null ? 'Salvar' : 'Cadastrar' }">
+    </form>
+</div>
+
+
+</body>
+</html>

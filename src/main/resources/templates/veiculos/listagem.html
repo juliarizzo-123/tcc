@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template.html}"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de veiculo</title>
+</head>
+<body>
+<div layout:fragment="conteudo">
+    <h1>Lista de veiculo</h1>
+
+    <a href="/veiculos/cadastrarVeiculo">Novo</a>
+
+    <table>
+        <thead>
+        <tr>
+            <th>TIPO DO VEICULO</th>
+            <th>MARCA</th>
+            <th>MODELO</th>
+            <th>COR</th>
+            <th>ANO</th>
+            <th>PREÇO</th>
+            <th>AÇÕES</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="veiculo : ${lista}">
+            <td th:text="${veiculo.tipoDoVeiculo}"></td>
+            <td th:text="${veiculo.marca}"></td>
+            <td th:text="${veiculo.modelo}"></td>
+            <td th:text="${veiculo.ano}"></td>
+            <td th:text="${veiculo.cor}"></td>
+            <td th:text="${veiculo.preco}"></td>
+            <td>
+
+                <a th:href="@{/veiculos/cadastrarVeiculo(id=${veiculo.id})}">Editar</a>
+
+
+                <form action="/veiculos" method="post">
+                    <input type="hidden" name="_method" value="delete">
+                    <input type="hidden" name="id" th:value="${veiculo.id}">
+                    <input type="submit" value="Excluir">
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+</body>
+</html>

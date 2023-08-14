@@ -1,5 +1,6 @@
 package br.com.JGgaragem.controller;
 
+import br.com.JGgaragem.domain.veiculo.DadosAlteraVeiculo;
 import br.com.JGgaragem.domain.veiculo.DadosCadastroVeiculo;
 import br.com.JGgaragem.domain.veiculo.Veiculo;
 import br.com.JGgaragem.domain.veiculo.VeiculoRepository;
@@ -8,10 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 @Controller
 @RequestMapping("/veiculos")

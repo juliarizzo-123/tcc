@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template.html}">
+<head>
+    <title>Lista de Usuarios</title>
+</head>
+<body>
+<div layout:fragment="conteudo">
+  <h1>Lista de Usuarios</h1>
+
+  <a href="/usuarios/cadastrarUsuario">Novo</a>
+
+  <table>
+    <thead>
+    <tr>
+      <th>NOME</th>
+      <th>EMAIL</th>
+      <th>SENHA</th>
+      <th>AÇÕES</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="usuario : ${lista}">
+      <td th:text="${usuario.nome}"></td>
+      <td th:text="${usuario.email}"></td>
+      <td th:text="${usuario.senha}"></td>
+      <td>
+
+        <a th:href="@{/usuarios/cadastrarUsuario(id=${usuario.id})}">Editar</a>
+
+        <form action="/usuarios" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input type="hidden" name="id" th:value="${usuario.id}">
+          <input type="submit" value="Excluir">
+        </form>
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

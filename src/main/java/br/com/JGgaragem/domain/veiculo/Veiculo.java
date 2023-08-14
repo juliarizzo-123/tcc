@@ -1,6 +1,5 @@
 package br.com.JGgaragem.domain.veiculo;
 
-import br.com.JGgaragem.controller.DadosAlteraVeiculo;
 import jakarta.persistence.*;
 
 @Entity

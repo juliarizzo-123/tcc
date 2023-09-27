@@ -15,6 +15,10 @@ public class Veiculo {
     private Integer ano;
     private String cor;
     private Double preco;
+    private Double quilometragem;
+    private String combustivel;
+    private String cambio;
+    private Double motor;
 
     public Veiculo(DadosCadastroVeiculo dados) {
         this.tipoDoVeiculo = dados.tipo();
@@ -23,6 +27,11 @@ public class Veiculo {
         this.ano = dados.ano();
         this.cor = dados.cor();
         this.preco = dados.preco();
+        this.quilometragem = dados.quilometragem();
+        this.combustivel = dados.combustivel();
+        this.cambio = dados.cambio();
+        this.motor = dados.motor();
+
     }
 
     public Veiculo() {}
@@ -30,12 +39,17 @@ public class Veiculo {
     @Override
     public String toString() {
         return "Veiculo{" +
-                "tipoDoVeiculo='" + tipoDoVeiculo + '\'' +
+                "id=" + id +
+                ", tipoDoVeiculo='" + tipoDoVeiculo + '\'' +
                 ", marca='" + marca + '\'' +
                 ", modelo='" + modelo + '\'' +
                 ", ano=" + ano +
                 ", cor='" + cor + '\'' +
                 ", preco=" + preco +
+                ", quilometragem=" + quilometragem +
+                ", combustivel='" + combustivel + '\'' +
+                ", cambio='" + cambio + '\'' +
+                ", motor=" + motor +
                 '}';
     }
 
@@ -67,6 +81,22 @@ public class Veiculo {
         return id;
     }
 
+    public Double getQuilometragem() {
+        return quilometragem;
+    }
+
+    public String getCombustivel() {
+        return combustivel;
+    }
+
+    public String getCambio() {
+        return cambio;
+    }
+
+    public Double getMotor() {
+        return motor;
+    }
+
     public void atualizaDados(DadosAlteraVeiculo dados) {
         this.tipoDoVeiculo = dados.tipo();
         this.marca = dados.marca();
@@ -74,5 +104,9 @@ public class Veiculo {
         this.ano = dados.ano();
         this.cor = dados.cor();
         this.preco = dados.preco();
+        this.quilometragem = dados.quilometragem();
+        this.combustivel = dados.combustivel();
+        this.cambio = dados.cambio();
+        this.motor = dados.motor();
     }
 }

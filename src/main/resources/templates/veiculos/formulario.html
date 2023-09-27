@@ -45,6 +45,24 @@
             <input id="preco" name="preco" th:value="${veiculo?.preco}">
 
         </div>
+        <div>
+            <label for="quilometragem">Quilometragem:</label>
+            <input id="quilometragem" name="quilometragem" th:value="${veiculo?.quilometragem}">
+        </div>
+
+        <div>
+            <label for="combustivel">Combustivel:</label>
+            <input id="combustivel" name="combustivel" th:value="${veiculo?.combustivel}">
+
+        </div>        <div>
+            <label for="cambio">Cambio:</label>
+            <input id="cambio" name="cambio" th:value="${veiculo?.cambio}">
+
+        </div>        <div>
+            <label for="motor">Motor:</label>
+            <input id="motor" name="motor" th:value="${veiculo?.motor}">
+
+        </div>
 
         <input type="submit" th:value="${veiculo != null ? 'Salvar' : 'Cadastrar' }">
     </form>

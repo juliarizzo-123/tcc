@@ -21,6 +21,10 @@
             <th>COR</th>
             <th>ANO</th>
             <th>PREÇO</th>
+            <th>QUILOMETRAGEM</th>
+            <th>COMBUSTIVEL</th>
+            <th>CAMBIO</th>
+            <th>MOTOR</th>
             <th>AÇÕES</th>
 
         </tr>
@@ -33,6 +37,10 @@
             <td th:text="${veiculo.ano}"></td>
             <td th:text="${veiculo.cor}"></td>
             <td th:text="${veiculo.preco}"></td>
+            <td th:text="${veiculo.quilometragem}"></td>
+            <td th:text="${veiculo.combustivel}"></td>
+            <td th:text="${veiculo.cambio}"></td>
+            <td th:text="${veiculo.motor}"></td>
             <td>
 
                 <a th:href="@{/veiculos/cadastrarVeiculo(id=${veiculo.id})}">Editar</a>

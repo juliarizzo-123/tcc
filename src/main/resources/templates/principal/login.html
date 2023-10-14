@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            box-shadow: #37414F;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            display: flex;
+            width: 60%; /* Largura total do card */
+            height: 30%;
+            overflow: hidden;
+        }
+        .login-left {
+            padding: 20px;
+            text-align: center;
+            background-color: #00ADB5;
+            color: #fff;
+            flex: 1; /* Largura do lado esquerdo é 3 vezes maior que o lado direito */
+        }
+        .login-right {
+            padding: 20px;
+            background-color: #37414F;
+            flex: 3; /* Largura do lado direito */
+        }
+        .login-left h1 {
+            font-size: 24px;
+        }
+        .login-left p {
+            font-size: 16px;
+        }
+        .login-left a {
+            color: #fff;
+            text-decoration: underline;
+        }
+        .login-right form {
+            display: flex;
+            flex-direction: column;
+        }
+        .login-right label {
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .login-right input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+        .login-left button {
+            background-color: #4285f4;
+            color: #fff;
+            border-color: white;
+            border-radius: 20px;
+            padding: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s; /* Adicione uma transição para suavizar o efeito de hover */
+        }
+        .login-left button:hover {
+            background-color: #357ae8; /* Cor de fundo ao passar o mouse (hover) */
+        }
+    </style>
+</head>
+<body>
+<div class="login-container">
+    <div class="login-left">
+        <h2>JG Garagem</h2>
+        <h1>Bem-vindo</h1>
+        <button type="submit">Entrar</button>
+
+        <p>Se você ainda não é cadastrado, <a href="#">cadastre-se aqui</a>.</p>
+
+    </div>
+    <div class="login-right">
+        <form action="/login" method="post">
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" name="username" />
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password"/>
+
+        </form>
+    </div>
+</div>
+</body>
+</html>

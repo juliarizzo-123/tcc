@@ -16,11 +16,17 @@ public class Usuario {
     //depois procurar anotaçao para senha
     private String senha;
 
+    private String cpf;
+
+    private boolean vendedor;
+
 
     public Usuario(DadosCadastroUsuario dados){
         this.nome = dados.nome();
         this.email = dados.email();
         this.senha = dados.senha();
+        this.cpf = dados.cpf();
+        this.vendedor = dados.vendedor();
     }
     public Usuario() {}
 
@@ -34,21 +40,7 @@ public class Usuario {
                 '}';
     }
 
-    public Long getId() {
-        return id;
-    }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
 
     public void atualizaDadosUsuario(DadosAlteraUsuarios dados) {
         this.nome = dados.nome();

@@ -1,9 +1,7 @@
 package br.com.JGgaragem.controller;
 
-import br.com.JGgaragem.domain.usuario.DadosAlteraUsuarios;
-import br.com.JGgaragem.domain.usuario.DadosCadastroUsuario;
-import br.com.JGgaragem.domain.usuario.Usuario;
-import br.com.JGgaragem.domain.usuario.UsuarioRepository;
+import br.com.JGgaragem.domain.usuario.*;
+import br.com.JGgaragem.exceptions.ValidacaoExecepition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,6 +33,15 @@ public class UsuarioController {
     @Transactional
     public  String cadastrarUsuarios(DadosCadastroUsuario dados){
         Usuario usuario = new Usuario(dados);
+        if(!repository.findUsuarioByNome(dados.nome())){
+            throw new ValidacaoExecepition("Já existe um usuário cadastro com esse nome");
+        }
+        if(!repository.findUsuarioByCpf(dados.cpf())){
+            throw new ValidacaoExecepition("Já existe um usuário cadastro com esse CPF");
+        }
+        if (!ValidadorCPF.validarCPF(dados.cpf())) {
+            throw new ValidacaoExecepition("O CPF é inválido");
+        }
         repository.save(usuario);
         return "redirect:/usuarios";
     }
